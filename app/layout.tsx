@@ -10,7 +10,7 @@ const font = Urbanist({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Grabarar 3D',
-  description: 'Grabarar 3D',
+  description: 'Grabarar 3D E-Commerce',
 }
 
 export default function RootLayout({

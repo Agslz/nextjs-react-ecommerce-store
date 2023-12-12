@@ -1,6 +1,5 @@
 "use client";
 
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { RefreshCw } from "lucide-react";
@@ -8,6 +7,8 @@ import Button from "@/components/ui/button";
 import Currency from "@/components/ui/currency";
 import useCart from "@/hooks/use-cart";
 import { toast } from "react-hot-toast";
+import Swal from "sweetalert2";
+import "sweetalert2/dist/sweetalert2.css";
 
 const Summary = () => {
   const searchParams = useSearchParams();
@@ -30,16 +31,44 @@ const Summary = () => {
     return total + Number(item.price);
   }, 0);
 
-  const onCheckout = async () => {
-    setLoading(true);
-    const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
-      {
-        productIds: items.map((item) => item.id),
-      }
-    );
+  // const onCheckout = async () => {
+  //   setLoading(true);
+  //   const response = await axios.post(
+  //     `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
+  //     {
+  //       productIds: items.map((item) => item.id),
+  //     }
+  //   );
 
-    window.location = response.data.url;
+  //   window.location = response.data.url;
+  // };
+
+  const handlePaymentClick = () => {
+    Swal.fire({
+      title: "Contacta a nuestro WhatsApp",
+      text: "Debido a problemas con las pasarelas de pago para realizar el pago, comunícate con nosotros a través de WhatsApp.",
+      icon: "warning",
+      showCancelButton: true,
+      cancelButtonText: "Cancelar",
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Ir a WhatsApp",
+      footer: `
+      <p><strong>Pronto volveremos a procesar pagos con Mercado Pago</strong></p>
+      <p>Mientras tanto, puedes seguirnos en nuestras redes sociales:</p>
+      <ul>
+        <li><a href="https://www.instagram.com/grabarardigital/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram} size="lg" /> Instagram</a></li>
+        <li><a href="https://www.facebook.com/grabarardigitalmza" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faWhatsapp} size="lg" /> Facebook</a></li>
+      </ul>
+    `,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.open(
+          "https://wa.me/+5492615979085?text=Hola! Me comunico desde el ecommerce, quisiera realizar el pago de unos artículos",
+          "_blank"
+        );
+      }
+    });
   };
 
   return (
@@ -52,7 +81,7 @@ const Summary = () => {
         </div>
       </div>
       <Button
-        onClick={onCheckout}
+        onClick={handlePaymentClick}
         disabled={items.length === 0}
         className="w-full mt-6"
       >

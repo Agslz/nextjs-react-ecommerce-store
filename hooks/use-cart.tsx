@@ -3,7 +3,6 @@ import { toast } from 'react-hot-toast';
 import { persist, createJSONStorage } from "zustand/middleware"; 
 
 import { Product } from '@/types';
-import { AlertTriangle } from 'lucide-react';
 
 interface CartStore {
   items: Product[];
@@ -20,15 +19,15 @@ const useCart = create(
     const existingItem = currentItems.find((item) => item.id === data.id);
     
     if (existingItem) {
-      return toast('Item already in cart.');
+      return toast('Artículo ya en el carrito.');
     }
 
     set({ items: [...get().items, data] });
-    toast.success('Item added to cart.');
+    toast.success('Artículo agregado al carrito.');
   },
   removeItem: (id: string) => {
     set({ items: [...get().items.filter((item) => item.id !== id)] });
-    toast.success('Item removed from cart.');
+    toast.success('Artículo eliminado del carrito.');
   },
   removeAll: () => set({ items: [] }),
 }), {

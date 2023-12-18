@@ -8,7 +8,12 @@ export const revalidate = 0;
 
 const HomePage = async () => {
   const products = await getProducts({ isFeatured: false });
-  const billboard = await getBillboard("9a94b3e4-ecad-4340-8375-95690b91080b");
+
+  //Cambiar el getBillboardId en caso de que sea necesario ---> Esto es el billboardId, se encuentrea en los 3 puntos de la derecha "66b81bb3-d2b8-4023-98c0-f20b5b5eb62b
+
+  //El valor que se encuentra entre api y billboard es el Store -----> http://localhost:3000/api/97653dc0-0cad-40be-9edd-f72599f348ff/billboards
+
+  const billboard = await getBillboard("2b7b1bcc-9f87-493d-bd02-083b4065e114");
 
   return (
     <Container>

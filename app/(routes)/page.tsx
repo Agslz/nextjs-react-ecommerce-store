@@ -13,7 +13,7 @@ const HomePage = async () => {
 
   //El valor que se encuentra entre api y billboard es el Store -----> http://localhost:3000/api/97653dc0-0cad-40be-9edd-f72599f348ff/billboards
 
-  const billboard = await getBillboard("66b81bb3-d2b8-4023-98c0-f20b5b5eb62b");
+  const billboard = await getBillboard("7ac397ea-32d6-437b-9424-b24f9166d1b7");
 
   return (
     <Container>

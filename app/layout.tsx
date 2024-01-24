@@ -9,8 +9,8 @@ import ToastProvider from "@/providers/toast-provider";
 const font = Urbanist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Grabarar 3D",
-  description: "Grabarar 3D E-Commerce",
+  title: "3 Ejes Impresiones 3D",
+  description: "3 Ejes Impresiones 3D E-Commerce",
 };
 
 export default function RootLayout({

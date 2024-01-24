@@ -57,8 +57,7 @@ const Summary = () => {
       <p><strong>Pronto volveremos a procesar pagos con Mercado Pago</strong></p>
       <p>Mientras tanto, puedes seguirnos en nuestras redes sociales:</p>
       <ul>
-        <li><a href="https://www.instagram.com/grabarardigital/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram} size="lg" /> Instagram</a></li>
-        <li><a href="https://www.facebook.com/grabarardigitalmza" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faWhatsapp} size="lg" /> Facebook</a></li>
+        <li><a href="https://www.instagram.com/3ejesimpresiones/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram} size="lg" /> Instagram</a></li>
       </ul>
     `,
     }).then((result) => {
